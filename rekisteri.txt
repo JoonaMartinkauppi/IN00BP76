@@ -1,0 +1,5 @@
+ID1 etunimi sukunimi 2
+asdasd moi suku 5
+ID1234 mikko meik„l„inen 4
+pekka a a 1
+id1000 pekka puup„„ 0
