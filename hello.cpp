@@ -52,13 +52,17 @@ void tallennaOpiskelija(){
     cin>>etuN;
     cout<<"Anna opiskelijan sukunumi:"<<endl;
     cin>>sukuN;
-    cout<<"Anna opiskelijan arvosana, 0-5:";
+    Arvo: cout<<"Anna opiskelijan arvosana, 0-5:";
     cin>>arvoS;
     if(cin.fail()){
         string s;
         cout<<"Opiskelijan tallentaminen epäonnistui!"<<endl;
         cin.clear();
         cin>>s;
+    }
+    else if(arvoS < 0 || arvoS > 5){
+        cout<<"Arvosanan tulee olla välillä 0-5!"<<endl;
+        goto Arvo;
     }
     else{
         Opiskelija opiskelija(ID, etuN, sukuN, arvoS);
@@ -83,6 +87,7 @@ void tulostaOpiskelijat(){
 }
 
 void tulostaOpiskelija(){
+    bool olemassa = false;
     string ID;
     cout<<"Anna opiskelijan ID: ";
     cin>>ID;
@@ -96,9 +101,13 @@ void tulostaOpiskelija(){
                 cout<<"Löytyi opiskelija annetulla ID:llä!"<<endl;
                 cout<<"Opiskelijan tiedot:"<<endl;
                 printf("%s\n", rivi.c_str());
+                olemassa = true;
                 break;
             }
         }
+    }
+    if(!olemassa){
+        cout<<"Annetulla ID:llä ei löytynyt opiskelijaa!"<<endl;
     }
 }
 
